@@ -9,14 +9,10 @@
 </head>
 
 <body>
-    <canvas></canvas>
 
-    <input type="range" id="line-width" min="1" max="10" value="5" step="0.5" />
-    <input type="color" id="color" />
-    <input type="file" accept="image/*" id="file" />
-    <input type="text" placeholder="Write and then double click" id="text" />
+    <div class="color-options">
+        <input type="color" id="color" />
 
-    <div>
         <!-- shift+option+i which is Selection > Add cursors to Line Ends  -->
         <div class="color-option" style="background-color:  #eccc68;" data-color="#eccc68"></div>
         <div class="color-option" style="background-color: #ffa502;" data-color="#ffa502"></div>
@@ -40,10 +36,18 @@
         <div class="color-option" style="background-color:  #2f3542;" data-color="#2f3542"></div>
     </div>
 
-    <button id="mode-btn">Fill</button>
-    <button id="destroy-btn">Destroy</button>
-    <button id="eraser-btn">Eraser</button>
-    <button id="save">Save image</button>
+    <canvas></canvas>
+
+    <div class="btns">
+        <input type="range" id="line-width" min="1" max="10" value="5" step="0.5" />
+        <input type="file" accept="image/*" id="file" />
+        <input type="text" placeholder="Write and then double click" id="text" />
+
+        <button id="mode-btn">Fill</button>
+        <button id="destroy-btn">Destroy</button>
+        <button id="eraser-btn">Eraser</button>
+        <button id="save">Save image</button>
+    </div>
 
     <script src="app.js"></script>
 </body>
