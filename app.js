@@ -3,6 +3,8 @@ const lineWidth = document.getElementById("line-width");
 const color = document.getElementById("color");
 const colorOptions = Array.from(document.getElementsByClassName("color-option")); // make array to use forEach 
 const modeBTN = document.getElementById("mode-btn");
+const destroyBTN = document.getElementById("destroy-btn");
+const eraserBTN = document.getElementById("eraser-btn")
 
 canvas.width = 800;
 canvas.height = 800;
@@ -63,8 +65,19 @@ function onModeClick() {
 
 function onCanvasClick() {
     if (isFilling) {
-        brush.fillRect(0, 0, 800, 800)
+        brush.fillRect(0, 0, canvas.width, canvas.height);
     }
+}
+
+function onDestroyClick() {
+    brush.fillStyle = "white";
+    brush.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+function onEraserClick() {
+    brush.strokeStyle = "white";
+    isFilling = false;
+    modeBTN.innerText = "Fill"
 }
 
 canvas.addEventListener("mousemove", onMove);
@@ -80,3 +93,5 @@ color.addEventListener("change", onColorChange);
 colorOptions.forEach(color => color.addEventListener("click", onColorClick));
 
 modeBTN.addEventListener("click", onModeClick);
+destroyBTN.addEventListener("click", onDestroyClick);
+eraserBTN.addEventListener("click", onEraserClick);
